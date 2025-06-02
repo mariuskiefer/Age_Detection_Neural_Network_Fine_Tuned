@@ -1,22 +1,61 @@
-# Age Verification Model for Alcohol Sales Instructions
+# Age Classification with Transfer Learning
 
-This repository contains code that requires the UTKFace dataset. Due to the large size of the dataset (approximately 1.39GB), the data files are not included in this repository.
+This project implements an age classification model using deep learning techniques, leveraging **transfer learning** with `EfficientNetB0` and advanced training strategies such as **callbacks** to optimize model performance. It is designed for real-world applications like verifying minimum legal age for alcohol sales, using facial image inputs.
 
-## Downloading the Data
+---
 
-You need to download the following files from the UTKFace website:
+## Project Highlights
+
+- **Transfer Learning**: Utilizes a pretrained `EfficientNetB0` model (trained on ImageNet) to extract rich visual features. Only the top layers are fine-tuned, significantly reducing training time and improving generalization on the UTKFace dataset.
+- **Callbacks for Efficient Training**:
+  - `ModelCheckpoint` is used to save the model with the best validation performance.
+  - `ReduceLROnPlateau` automatically lowers the learning rate when training stalls, helping the model escape local minima.
+- **Data Augmentation**: Employs `ImageDataGenerator` to simulate real-world variability, improving robustness.
+- **Performance Metrics**: Evaluates precision and recall in addition to accuracy to ensure fairness and model reliability.
+
+---
+
+## Dataset
+
+This model uses the **UTKFace** dataset, which includes over 20,000 images labeled with age, gender, and ethnicity. Due to the dataset size (~1.39GB), files must be manually downloaded.
+
+### Download Instructions
+
+Please download the following tar files from the [UTKFace Dataset Website](https://susanqq.github.io/UTKFace/):
 
 - `part1.tar.gz`
 - `part2.tar.gz`
 - `part3.tar.gz`
 
-Visit the [UTKFace Dataset Website](https://susanqq.github.io/UTKFace/) to download these files.
+---
 
-## Storing the Data
+## Data Setup
 
-After downloading, simply store these files in the designated directory. **No extraction is necessary.**
+1. Place the downloaded tar files in the root directory.
+2. **No extraction is needed** — the script handles it automatically.
 
-## Usage
+---
 
-Once the dataset files are in the correct directory, you can proceed to run the code in this repository. Make sure that any path references in the code point to the directory where the data files are stored.
+## Running the Code
 
+Ensure all dependencies are installed (see below), then run the Jupyter notebook:  
+`code.ipynb`
+
+Make sure file paths point to the correct dataset directory.
+
+---
+
+## 🛠 Dependencies
+
+- Python 3.8+
+- TensorFlow / Keras
+- NumPy
+- OpenCV
+- Matplotlib
+- PIL
+- scikit-learn
+
+You can install the required packages via:
+
+```bash
+pip install -r requirements.txt
