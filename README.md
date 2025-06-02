@@ -45,7 +45,7 @@ Make sure file paths point to the correct dataset directory.
 
 ---
 
-## 🛠 Dependencies
+## Dependencies
 
 - Python 3.8+
 - TensorFlow / Keras
